@@ -14,6 +14,8 @@ ENV PYTHONUNBUFFERED=1 \
     THREADS=8
 
 # Update the base OS
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
 RUN --mount=type=cache,target="/var/cache/apt",sharing=locked \
     --mount=type=cache,target="/var/lib/apt/lists",sharing=locked \
     set -eux; \
